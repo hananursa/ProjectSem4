@@ -15,6 +15,12 @@
                         <?= form_error('id_gizi', '<div class="text-danger small">', '</div>'); ?>
                     </div>
                     <div class="form-group">
+                        <label for="">Id Posyandu</label>
+                        <input type="hidden" name="id_posyandu" value="<?= $gizi->id_posyandu ?>">
+                        <input type="text" name="id_posyandu" placeholder="Ketikkan Id Posyandu" class="form-control" value="<?= $gizi->id_gizi ?>">
+                        <?= form_error('id_posyandu', '<div class="text-danger small">', '</div>'); ?>
+                    </div>
+                    <div class="form-group">
                         <label for="">Jenis</label>
                         <input readonly type="text" name="jenis" placeholder="Ketikkan Nama Admin" class="form-control" value="<?= $gizi->jenis ?>">
                         <?= form_error('jenis', '<div class="text-danger small">', '</div>'); ?>

@@ -17,6 +17,7 @@
     <tr>
       <th>#</th>
       <th>No Kesehatan</th>
+      <th>Id Posyandu</th>
       <th>No Lansia</th>
       <th>Tanggal Cek</th>
       <th>BB Lansia</th>
@@ -34,6 +35,7 @@
     <tr>
       <td><?= $no++; ?></td>
       <td><?= $data_kes_lansia->id_kesehatan; ?></td>
+      <td><?= $data_kes_lansia->id_posyandu; ?></td>
       <td><?= $data_kes_lansia->id_lansia; ?></td>
       <td><?= $data_kes_lansia->tanggal_cek; ?></td>
       <td><?= $data_kes_lansia->bb_lansia; ?></td>

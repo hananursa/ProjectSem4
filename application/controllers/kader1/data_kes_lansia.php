@@ -12,6 +12,7 @@ class data_kes_lansia extends CI_Controller{
   public function tambah_data_kes_lansia(){
     $data = array(
       'id_kesehatan' => set_value('id_kesehatan'),
+      'id_posyandu' => set_value('id_posyandu'),
       'id_lansia' => set_value('id_lansia'),
       'tanggal_cek'    => set_value('tanggal_cek'),
       'bb_lansia'    => set_value('bb_lansia'),

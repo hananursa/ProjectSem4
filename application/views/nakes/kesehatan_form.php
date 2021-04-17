@@ -27,6 +27,11 @@ function nilai() {
           <input type="text" name="id_kesehatan" placeholder="Ketikkan Id Kesehatan" class="form-control">
           <?= form_error('id_kesehatan', '<div class="text-danger small">', '</div>'); ?>
         </div>
+        <div class="form-group">
+          <label for="">Id Posyandu</label>
+          <input type="text" name="id_posyandu" placeholder="Ketikkan Id Posyandu" class="form-control">
+          <?= form_error('id_posyandu', '<div class="text-danger small">', '</div>'); ?>
+        </div>
       <div class="form-group">
           <label for="">Id Lansia</label>
           <input type="text" name="id_lansia" placeholder="Ketikkan Id Lansia" class="form-control">

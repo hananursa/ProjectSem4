@@ -31,6 +31,7 @@
   <table id="dataTable" class="table table-responsive table-bordered">
     <tr>
       <th>No Kesehatan</th>
+      <th>Id Posyandu</th>
       <th>No Lansia</th>
       <th>Tanggal Cek</th>
       <th>BB Lansia</th>
@@ -49,6 +50,7 @@
     foreach($data_kes_lansia as $data_kes_lansia): ?>
     <tr>
       <td><?= $data_kes_lansia->id_kesehatan; ?></td>
+      <td><?= $data_kes_lansia->id_posyandu; ?></td>
       <td><?= $data_kes_lansia->id_lansia; ?></td>
       <td><?= $data_kes_lansia->tanggal_cek; ?></td>
       <td><?= $data_kes_lansia->bb_lansia; ?></td>

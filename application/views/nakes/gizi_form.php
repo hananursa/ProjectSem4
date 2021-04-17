@@ -12,6 +12,11 @@
           <?= form_error('id_gizi', '<div class="text-danger small">', '</div>'); ?>
         </div>
         <div class="form-group">
+          <label for="">Id Posyandu</label>
+          <input type="text" name="id_posyandu" placeholder="Ketikkan Id Posyandu" class="form-control">
+          <?= form_error('id_posyandu', '<div class="text-danger small">', '</div>'); ?>
+        </div>
+        <div class="form-group">
           <label for="">Jenis Gizi</label> <br>
           <input type="radio" name="jenis" value="makanan"> Makanan <br>
           <input type="radio" name="jenis" value="vitamin"> Vitamin <br>

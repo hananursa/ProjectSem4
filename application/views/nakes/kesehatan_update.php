@@ -30,6 +30,11 @@ function nilai() {
                         <?= form_error('id_kesehatan', '<div class="text-danger small">', '</div>'); ?>
                     </div>
                     <div class="form-group">
+                        <label for="">Id Posyandu</label>   <br>                     
+                        <input type="text" name="id_posyandu" placeholder="Ketikkan Id Posyandu" class="form-control" value="<?= $data_kes_lansia->id_kesehatan ?>">
+                        <?= form_error('id_posyandu', '<div class="text-danger small">', '</div>'); ?>
+                    </div>
+                    <div class="form-group">
                         <label for="">Id Lansia</label><br>
                         <input type="text" name="id_lansia" placeholder="Ketikkan Nama Admin" class="form-control" value="<?= $data_kes_lansia->id_lansia ?>">
                         <?= form_error('id_lansia', '<div class="text-danger small">', '</div>'); ?>

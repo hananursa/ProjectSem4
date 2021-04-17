@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 17 Apr 2021 pada 06.39
+-- Waktu pembuatan: 17 Apr 2021 pada 07.51
 -- Versi server: 10.1.37-MariaDB
 -- Versi PHP: 7.2.12
 
@@ -34,20 +34,19 @@ CREATE TABLE `data_kader` (
   `nama_kader` varchar(50) NOT NULL,
   `username_kader` varchar(50) NOT NULL,
   `pass_kader` varchar(30) NOT NULL,
-  `no_hp` varchar(15) NOT NULL,
-  `level` enum('kader1','kader2','kader3','kader4','kader5') NOT NULL
+  `no_hp` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `data_kader`
 --
 
-INSERT INTO `data_kader` (`id_kader`, `id_posyandu`, `nama_kader`, `username_kader`, `pass_kader`, `no_hp`, `level`) VALUES
-(1, 1, 'shania', 'kader1', '123456', '0876807654', 'kader1'),
-(2, 2, 'hana', 'kader2', '123456', '0876807678', 'kader2'),
-(3, 3, 'finta', 'kader3', '123456', '075874975', 'kader3'),
-(4, 4, 'ika', 'kader4', '123456', '0876807657', 'kader4'),
-(5, 5, 'salsa', 'kader5', '123456', '0876342589', 'kader5');
+INSERT INTO `data_kader` (`id_kader`, `id_posyandu`, `nama_kader`, `username_kader`, `pass_kader`, `no_hp`) VALUES
+(1, 1, 'shania', 'kader1', '123456', '0876807654'),
+(2, 2, 'hana', 'kader2', '123456', '0876807678'),
+(3, 3, 'finta', 'kader3', '123456', '075874975'),
+(4, 4, 'ika', 'kader4', '123456', '0876807657'),
+(5, 5, 'salsa', 'kader5', '123456', '0876342589');
 
 -- --------------------------------------------------------
 
@@ -57,6 +56,7 @@ INSERT INTO `data_kader` (`id_kader`, `id_posyandu`, `nama_kader`, `username_kad
 
 CREATE TABLE `data_kes_lansia` (
   `id_kesehatan` int(11) NOT NULL,
+  `id_posyandu` int(11) DEFAULT NULL,
   `id_lansia` int(11) NOT NULL,
   `tanggal_cek` date NOT NULL,
   `bb_lansia` int(11) NOT NULL,
@@ -65,8 +65,7 @@ CREATE TABLE `data_kes_lansia` (
   `tinggi_badan` int(11) DEFAULT NULL,
   `IMT` double DEFAULT NULL,
   `analisis_IMT` enum('kurus','normal','gemuk','obesitas') DEFAULT NULL,
-  `analisis_tensi` enum('hipotensi','normal','hipertensi') DEFAULT NULL,
-  `level` enum('kader1','kader2','kader3','kader4','kader5') DEFAULT NULL
+  `analisis_tensi` enum('hipotensi','normal','hipertensi') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -117,6 +116,7 @@ INSERT INTO `data_posyandu` (`id_posyandu`, `nama_posyandu`, `nama_ketua`, `juml
 
 CREATE TABLE `gizi` (
   `id_gizi` int(11) NOT NULL,
+  `id_posyandu` int(11) DEFAULT NULL,
   `jenis` enum('makanan','vitamin') NOT NULL,
   `tanggal` date NOT NULL,
   `keterangan` varchar(255) NOT NULL,

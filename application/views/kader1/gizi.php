@@ -20,6 +20,7 @@
   <table class="table table-borderd table-hover table-striped">
     <tr>
       <th>Id Gizi</th>
+      <th>Id Posyandu</th>
       <th>Jenis</th>
       <th>Tanggal</th>
       <th>Keterangan</th>
@@ -35,6 +36,7 @@
     <tr>
       
       <td><?= $gizi->id_gizi; ?></td>
+      <td><?= $gizi->id_posyandu; ?></td>
       <td><?= $gizi->jenis; ?></td>
       <td><?= $gizi->tanggal; ?></td>
       <td><?= $gizi->gambar; ?></td>

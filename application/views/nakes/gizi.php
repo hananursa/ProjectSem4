@@ -29,7 +29,8 @@
   <table id="dataTable" class="table table-responsive table-bordered">
     <tr>
     <th>Id Gizi</th>
-      <th>Jenis</th>
+    <th>Id Posyandu</th>
+    <th>Jenis</th>
       <th>Tanggal</th>
       <th>Keterangan</th>
       <th>Gambar</th>
