@@ -183,7 +183,6 @@ class gizi extends CI_Controller
     );
     redirect('nakes/gizi');
   }
-<<<<<<< HEAD
   public function grafik_IMT(){
     $this->load->view('template/nakes/header');
     $this->load->view('template/nakes/sidebar');
@@ -197,11 +196,6 @@ class gizi extends CI_Controller
     $this->load->view('template/nakes/footer');
   }
   public function _rules(){
-=======
-
-  public function _rules()
-  {
->>>>>>> 10efbfcd641384a00158a0075f9e9ea3eed251e8
     $this->form_validation->set_rules('id_gizi', 'id_gizi', 'required', [
       'required' => 'id_gizi wajib diisi!'
     ]);
