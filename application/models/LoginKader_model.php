@@ -11,7 +11,7 @@ class LoginKader_model extends CI_Model
 		return $this->db->get('data_kader');
 	}
 
-	public function getLoginData($user, $pass, $lvl)
+	public function getLoginData($user, $pass)
 	{
 		$u = $user;
 		$p = $pass;
@@ -25,7 +25,7 @@ class LoginKader_model extends CI_Model
 					$sess_data['logged_in'] = TRUE;
 					$sess_data['username']  = $ck->username_kader;
 					$sess_data['password']  = $ck->pass_kader;
-					$sess_data['level']     = $ck->level;
+					$sess_data['id_posyandu']     = $ck->id_posyandu;
 					$this->session->set_userdata($sess_data);
 				}
 				redirect('kader1/dashboard');

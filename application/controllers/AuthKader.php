@@ -27,27 +27,18 @@ class AuthKader extends CI_Controller
 
 			$user = $username;
 			$pass = $password;
-			$lvl = $level;
-			$cek = $this->loginkader_model->cek_login($user, $pass, $lvl);
+		
+			$cek = $this->loginkader_model->cek_login($user, $pass);
 
 			if ($cek->num_rows() > 0) {
 				foreach ($cek->result() as $ck) {
 					$sess_data['username'] = $ck->username_kader;
 					$sess_data['password'] = $ck->pass_kader;
-					$sess_data['level'] = $ck->level;
+					$sess_data['id_posyandu'] = $ck->id_posyandu;
 
 					$this->session->set_userdata($sess_data);
 				}
-				if ($sess_data['level'] == 'kader1') {
-					redirect('kader1/dashboard');
-				} else if ($sess_data['level'] == 'kader2') {
-					redirect('kader2/dashboard');
-				} else if ($sess_data['level'] == 'kader3') {
-					redirect('kader3/dashboard');
-				} else if ($sess_data['level'] == 'kader4') {
-					redirect('kader4/dashboard');
-				} else if ($sess_data['level'] == 'kader5') {
-					redirect('kader5/dashboard');
+				redirect('kader1');
 				} else {
 					$this->session->set_flashdata(
 						'pesan',
@@ -65,7 +56,7 @@ class AuthKader extends CI_Controller
 				}
 			}
 		}
-	}
+
 
 	public function logout()
 	{
