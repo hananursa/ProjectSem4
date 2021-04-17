@@ -1,8 +1,10 @@
 <?php
 
-class gizi extends CI_Controller{
+class gizi extends CI_Controller
+{
 
-  public function index(){
+  public function index()
+  {
     $data['gizi'] = $this->kesehatan_model->tampil_data('gizi')->result();
     $this->load->view('template/nakes/header');
     $this->load->view('template/nakes/sidebar');
@@ -10,8 +12,9 @@ class gizi extends CI_Controller{
     $this->load->view('template/nakes/footer');
   }
 
-  public function tambah_gizi(){
-   
+  public function tambah_gizi()
+  {
+
     $data = array(
       'id_gizi' => set_value('id_gizi'),
       'id_posyandu' => set_value('id_posyandu'),
@@ -28,13 +31,42 @@ class gizi extends CI_Controller{
     $this->load->view('template/nakes/footer');
   }
 
- 
+  public function tambah_gizi_aksi()
+  {
+    $this->load->helper(array('form', 'url'));
+    $this->load->library('form_validation');
 
-  public function tambah_gizi_aksi(){
     $this->_rules();
 
-    if($this->form_validation->run() == FALSE){
-      $this->tambah_gizi();
+    if ($this->form_validation->run() == TRUE) {
+
+      $config['upload_path'] = './assets/gizi';
+      $config['allowed_types'] = 'jpg|png|gif';
+      $config['max_size']         = 2000;
+      $this->load->library('upload', $config);
+      if (!$this->upload->do_upload('gambar')) {
+        $this->tambah_gizi();
+      } else {
+        $data = array(
+          'id_gizi'   => $this->input->post('id_gizi', TRUE),
+          'jenis'   => $this->input->post('jenis', TRUE),
+          'tanggal'      => $this->input->post('tanggal', TRUE),
+          'keterangan'      => $this->input->post('keterangan', TRUE),
+          'gambar'     => $this->upload->data('file_name'),
+          'status'     => $this->input->post('status', TRUE),
+        );
+        $this->gizi_model->insert_data($data, 'gizi');
+        $this->session->set_flashdata(
+          'pesan',
+          '<div class="alert alert-success alert-dismissible fade show" role="alert">
+            Data gizi berhasil ditambahkan
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>'
+        );
+        redirect('nakes/gizi');
+      }
     }
     else{
       $data = array(
@@ -60,8 +92,10 @@ class gizi extends CI_Controller{
       redirect('nakes/gizi');
     }
   }
-  public function update($id_gizi){
-    $where = array('id_gizi'=>$id_gizi);
+
+  public function update($id_gizi)
+  {
+    $where = array('id_gizi' => $id_gizi);
 
     $data['gizi'] = $this->kesehatan_model->edit_data($where, 'gizi')->result();
     $this->load->view('template/nakes/header');
@@ -80,7 +114,7 @@ class gizi extends CI_Controller{
     $status      = $this->input->post('status');
 
    
-    
+     
     $data = array(
       'id_gizi' => $id_gizi,
       'id_posyandu' => $id_posyandu,
@@ -90,29 +124,58 @@ class gizi extends CI_Controller{
       'gambar'   => $gambar,
       'status'   => $status,
     );
+  
 
-    $where = array('id_gizi'=>$id_gizi);
+    if ($this->form_validation->run() == TRUE) {
 
-    $this->kesehatan_model->update_data($where, $data, 'gizi');
-    $this->session->set_flashdata(
-      'pesan',
-      '<div class="alert alert-success alert-dismissible fade show" role="alert">
-        Data user berhasil diupdate
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>'
-    );
-    redirect('nakes/gizi');
+      $path = './assets/gizi/' . $this->gizi_model->ambil_data($id_gizi)->gambar;
+      unlink($path);
+
+      $config['upload_path'] = './assets/gizi';
+      $config['allowed_types'] = 'jpg|png|gif';
+      $config['max_size']         = 2000;
+      $this->load->library('upload', $config);
+      if (!$this->upload->do_upload('gambar')) {
+        $this->update($id_gizi);
+      } else {
+        $data = array(
+          'jenis'   => $this->input->post('jenis', TRUE),
+          'tanggal'      => $this->input->post('tanggal', TRUE),
+          'keterangan'      => $this->input->post('keterangan', TRUE),
+          'gambar'     => $this->upload->data('file_name'),
+          'status'     => $this->input->post('status', TRUE),
+        );
+
+        $where = array('id_gizi' => $id_gizi);
+
+        $this->kesehatan_model->update_data($where, $data, 'gizi');
+        $this->session->set_flashdata(
+          'pesan',
+          '<div class="alert alert-success alert-dismissible fade show" role="alert">
+            Data gizi berhasil diupdate
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>'
+        );
+        redirect('nakes/gizi');
+      }
+    } else {
+      $this->update($id_gizi);
+    }
   }
 
-  public function hapus($id_gizi){
+  public function hapus($id_gizi)
+  {
+    $path = './assets/gizi/' . $this->gizi_model->ambil_data($id_gizi)->gambar;
+    unlink($path);
+
     $where = array('id_gizi' => $id_gizi);
     $this->gizi_model->hapus_data($where, 'gizi');
     $this->session->set_flashdata(
       'pesan',
       '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-        Data user berhasil dihapus
+        Data gizi berhasil dihapus
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -120,8 +183,9 @@ class gizi extends CI_Controller{
     );
     redirect('nakes/gizi');
   }
-  
-  public function _rules(){
+
+  public function _rules()
+  {
     $this->form_validation->set_rules('id_gizi', 'id_gizi', 'required', [
       'required' => 'id_gizi wajib diisi!'
     ]);
@@ -137,12 +201,8 @@ class gizi extends CI_Controller{
     $this->form_validation->set_rules('keterangan', 'keterangan', 'required', [
       'required' => 'keterangan wajib diisi!'
     ]);
-    $this->form_validation->set_rules('gambar', 'gambar', 'required', [
-      'required' => 'gambar wajib diisi!'
-    ]);
     $this->form_validation->set_rules('status', 'status', 'required', [
-        'required' => 'status wajib diisi!'
-      ]);
+      'required' => 'status wajib diisi!'
+    ]);
   }
-
 }
