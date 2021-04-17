@@ -16,7 +16,7 @@
       <div class="content">
           <div class="container-fluid">
               <div class="alert alert-secondary" role="alert">
-                  <i class="nav-icon fas fa-chart-line"></i> Admin &nbsp; &nbsp; > &nbsp; &nbsp; <i class="nav-icon fas fa-newspaper"></i> Data Kesehatan Lansia
+                  <i class="nav-icon fas fa-chart-line"></i> Nakes &nbsp; &nbsp; > &nbsp; &nbsp; <i class="nav-icon fas fa-newspaper"></i> Data Kesehatan Lansia
               </div>
               <div class="row table-responsive">
                   <div class="col table-responsive">
