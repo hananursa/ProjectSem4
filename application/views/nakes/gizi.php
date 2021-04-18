@@ -12,16 +12,31 @@
       <!-- /.content-header -->
       <!-- Main content -->
       <div class="content">
-        <div class="container-fluid">
-          <div class="alert alert-secondary" role="alert">
-            <i class="nav-icon fas fa-chart-line"></i> Nakes &nbsp; &nbsp; > &nbsp; &nbsp; <i class="nav-icon fas fa-newspaper"></i> Gizi
-          </div>
-          <div class="row">
-            <div class="col">
-              <!-- Tabel -->
-              <div class="card">
-                <div class="card-body">
-                  <?= $this->session->flashdata('pesan'); ?>
+          <div class="container-fluid">
+              <div class="alert alert-secondary" role="alert">
+                  <i class="nav-icon fas fa-chart-line"></i> Nakes &nbsp; &nbsp; > &nbsp; &nbsp; <i class="nav-icon fas fa-newspaper"></i> Gizi
+              </div>
+              <div class="row table-responsive">
+                  <div class="col table-responsive">
+                      <!-- Tabel -->
+                      <div class="card">
+  
+
+  <?= $this->session->flashdata('pesan'); ?>
+
+  <?= anchor('nakes/gizi/tambah_gizi', '<button class="btn btn-primary btn-sm mb-2"><i class="fas fa-plus fa-sm"></i> Tambah Gizi</button>') ?>
+
+  <table id="dataTable" class="table table-responsive table-bordered">
+    <tr>
+    <th>Id Gizi</th>
+    <th>Id Posyandu</th>
+    <th>Jenis</th>
+      <th>Tanggal</th>
+      <th>Keterangan</th>
+      <th>Gambar</th>
+      <th>Status</th>
+      <th colspan="2">AKSI</th>
+    </tr>
 
                   <?= anchor('nakes/gizi/tambah_gizi', '<button class="btn btn-primary btn-sm mb-2"><i class="fas fa-plus fa-sm"></i> Tambah Gizi</button>') ?>
                   <div class="table-responsive">

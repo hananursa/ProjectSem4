@@ -1,58 +1,56 @@
 <?php
 
-class data_kes_lansia extends CI_Controller{
+class data_kes_lansia extends CI_Controller
+{
 
-  public function index(){
-    $data['data_kes_lansia'] = $this->kesehatan_model->tampil_data('data_kes_lansia')->result();
-    $this->load->view('template/admin/header');
-    $this->load->view('template/admin/sidebar');
-    $this->load->view('administrator/data_kes_lansia', $data);
-    $this->load->view('template/admin/footer');
+  public function index()
+  {
+    $data['data_kes_lansia'] = $this->kesehatan_model->tampil_data_kader();
+    $this->load->view('Template/Kader/header', $data);
+    $this->load->view('kader/data_kes_lansia', $data);
+    $this->load->view('Template/Kader/footer', $data);
   }
 
-  public function tambah_data_kes_lansia(){
+  public function tambah_data_kes_lansia()
+  {
     $data = array(
       'id_kesehatan' => set_value('id_kesehatan'),
-      'id_posyandu' => set_value('id_posyandu'),
       'id_lansia' => set_value('id_lansia'),
       'tanggal_cek'    => set_value('tanggal_cek'),
       'bb_lansia'    => set_value('bb_lansia'),
       'tensi_sistolik'   => set_value('tensi_sistolik'),
       'tensi_diastolik'   => set_value('tensi_diastolik'),
-      'tinggi_badan'   => set_value('tinggi_badan'),
       'IMT'   => set_value('IMT'),
+      'tinggi_badan'   => set_value('tinggi_badan'),
       'analisis_IMT'   => set_value('analisis_IMT'),
       'analisis_tensi'   => set_value('analisis_tensi'),
     );
-
-    $this->load->view('template/admin/header');
-    $this->load->view('template/admin/sidebar');
-    $this->load->view('administrator/kesehatan_form', $data);
-    $this->load->view('template/admin/footer');
+    $this->load->view('Template/Kader/header', $data);
+    $this->load->view('kader/kesehatan_form', $data);
+    $this->load->view('Template/Kader/footer', $data);
   }
 
- 
 
-  public function tambah_data_kes_lansia_aksi(){
+
+  public function tambah_data_kes_lansia_aksi()
+  {
     $this->_rules();
 
-    if($this->form_validation->run() == FALSE){
+    if ($this->form_validation->run() == FALSE) {
       $this->tambah_data_kes_lansia();
-    }
-    else{
+    } else {
       $data = array(
-      'id_kesehatan'   => $this->input->post('id_kesehatan', TRUE),
-      'id_posyandu'   => $this->input->post('id_posyandu', TRUE),
-      'id_lansia'   => $this->input->post('id_lansia', TRUE),
-      'tanggal_cek'      => $this->input->post('tanggal_cek', TRUE),
-      'bb_lansia'      => $this->input->post('bb_lansia', TRUE),
-      'tensi_sistolik'     => $this->input->post('tensi_sistolik', TRUE),
-      'tensi_diastolik'     => $this->input->post('tensi_diastolik', TRUE),
-      'tinggi_badan'      => $this->input->post('tinggi_badan', TRUE),
-      'IMT'      => $this->input->post('IMT', TRUE),
-      'analisis_IMT'     => $this->input->post('analisis_IMT', TRUE),
-      'analisis_tensi'     => $this->input->post('analisis_tensi', TRUE),
-            );
+        'id_kesehatan'   => $this->input->post('id_kesehatan', TRUE),
+        'id_lansia'   => $this->input->post('id_lansia', TRUE),
+        'tanggal_cek'      => $this->input->post('tanggal_cek', TRUE),
+        'bb_lansia'      => $this->input->post('bb_lansia', TRUE),
+        'tensi_sistolik'     => $this->input->post('tensi_sistolik', TRUE),
+        'tensi_diastolik'     => $this->input->post('tensi_diastolik', TRUE),
+        'IMT'     => $this->input->post('IMT', TRUE),
+        'tinggi_badan'     => $this->input->post('tinggi_badan', TRUE),
+        'analisis_IMT'     => $this->input->post('analisis_IMT', TRUE),
+        'analisis_tensi'     => $this->input->post('analisis_tensi', TRUE),
+      );
 
       $this->kesehatan_model->insert_data($data, 'data_kes_lansia');
       $this->session->set_flashdata(
@@ -64,48 +62,48 @@ class data_kes_lansia extends CI_Controller{
           </button>
         </div>'
       );
-      redirect('administrator/data_kes_lansia');
+      redirect('kader/data_kes_lansia');
     }
   }
-  public function update($id_kesehatan){
-    $where = array('id_kesehatan'=>$id_kesehatan);
+  public function update($id_kesehatan)
+  {
+    $where = array('id_kesehatan' => $id_kesehatan);
 
     $data['data_kes_lansia'] = $this->kesehatan_model->edit_data($where, 'data_kes_lansia')->result();
-    $this->load->view('template/admin/header');
-    $this->load->view('template/admin/sidebar');
-    $this->load->view('administrator/kesehatan_update', $data);
-    $this->load->view('template/admin/footer');
+
+    $this->load->view('Template/Kader/header', $data);
+    $this->load->view('kader/kesehatan_update', $data);
+    $this->load->view('Template/Kader/footer', $data);
   }
 
-  public function update_aksi(){
+  public function update_aksi()
+  {
     $id_kesehatan         = $this->input->post('id_kesehatan');
-    $id_posyandu   = $this->input->post('id_posyandu');
     $id_lansia   = $this->input->post('id_lansia');
     $tanggal_cek   = $this->input->post('tanggal_cek');
     $bb_lansia     = $this->input->post('bb_lansia');
     $tensi_sistolik      = $this->input->post('tensi_sistolik');
     $tensi_diastolik      = $this->input->post('tensi_diastolik');
-    $tinggi_badan   = $this->input->post('tinggi_badan');
-    $IMT    = $this->input->post('IMT');
+    $tinggi_badan      = $this->input->post('tinggi_badan');
+    $IMT      = $this->input->post('IMT');
     $analisis_IMT      = $this->input->post('analisis_IMT ');
     $analisis_tensi     = $this->input->post('analisis_tensi');
-   
-    
+
+
     $data = array(
       'id_kesehatan' => $id_kesehatan,
-      'id_posyandu' => $id_posyandu,
       'id_lansia' => $id_lansia,
       'tanggal_cek'    => $tanggal_cek,
       'bb_lansia'    => $bb_lansia,
       'tensi_sistolik'   => $tensi_sistolik,
       'tensi_diastolik'   => $tensi_diastolik,
-      'tinggi_badan'    => $tinggi_badan,
-      'IMT'    => $IMT,
+      'IMT'   => $IMT,
+      'tinggi_badan'   => $tinggi_badan,
       'analisis_IMT'   => $analisis_IMT,
       'analisis_tensi'   => $analisis_tensi,
     );
 
-    $where = array('id_kesehatan'=>$id_kesehatan);
+    $where = array('id_kesehatan' => $id_kesehatan);
 
     $this->kesehatan_model->update_data($where, $data, 'data_kes_lansia');
     $this->session->set_flashdata(
@@ -117,10 +115,11 @@ class data_kes_lansia extends CI_Controller{
         </button>
       </div>'
     );
-    redirect('administrator/data_kes_lansia');
+    redirect('kader/data_kes_lansia');
   }
 
-  public function hapus($id_kesehatan){
+  public function hapus($id_kesehatan)
+  {
     $where = array('id_kesehatan' => $id_kesehatan);
     $this->kesehatan_model->hapus_data($where, 'data_kes_lansia');
     $this->session->set_flashdata(
@@ -132,15 +131,13 @@ class data_kes_lansia extends CI_Controller{
         </button>
       </div>'
     );
-    redirect('administrator/data_kes_lansia');
+    redirect('kader/data_kes_lansia');
   }
-  
-  public function _rules(){
+
+  public function _rules()
+  {
     $this->form_validation->set_rules('id_kesehatan', 'id_kesehatan', 'required', [
       'required' => 'id_kesehatan wajib diisi!'
-    ]);
-    $this->form_validation->set_rules('id_posyandu', 'id_posyandu', 'required', [
-      'required' => 'id_posyandu wajib diisi!'
     ]);
     $this->form_validation->set_rules('id_lansia', 'id_lansia', 'required', [
       'required' => 'id_lansia wajib diisi!'
@@ -155,11 +152,13 @@ class data_kes_lansia extends CI_Controller{
       'required' => 'tensi_sistolik wajib diisi!'
     ]);
     $this->form_validation->set_rules('tensi_diastolik', 'tensi_diastolik', 'required', [
-        'required' => 'tensi_diastolik wajib diisi!'
-      ]);
+      'required' => 'tensi_diastolik wajib diisi!'
+    ]);
     $this->form_validation->set_rules('tinggi_badan', 'tinggi_badan', 'required', [
-        'required' => 'tinggi_badan wajib diisi!'
-      ]);
+      'required' => 'tinggi_badan wajib diisi!'
+    ]);
+    // $this->form_validation->set_rules('IMT', 'IMT', 'required', [
+    //     'required' => 'IMT wajib diisi!'
+    //   ]);
   }
-
 }

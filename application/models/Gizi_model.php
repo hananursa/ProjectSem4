@@ -14,6 +14,12 @@ class Gizi_model extends CI_Model{
     return $this->db->get($table);
   }
 
+  public function tampil_data_kader()
+  {
+    $this->db->where('id_posyandu', $this->session->id_posyandu);
+    return $this->db->get('gizi')->result();
+  }
+
   public function insert_data($data, $table){
     $this->db->insert($table, $data);
   }

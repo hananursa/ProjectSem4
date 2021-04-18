@@ -29,6 +29,7 @@
                       <thead>
                         <tr>
                           <th>Id Gizi</th>
+                          <th>Id Posyandu</th>
                           <th>Jenis</th>
                           <th>Tanggal</th>
                           <th>Keterangan</th>
@@ -43,6 +44,7 @@
                         foreach ($gizi as $gizi) : ?>
                           <tr>
                             <td><?= $gizi->id_gizi; ?></td>
+                            <td><?= $gizi->id_posyandu; ?></td>
                             <td><?= $gizi->jenis; ?></td>
                             <td><?= $gizi->tanggal; ?></td>
                             <td><?= $gizi->gambar; ?></td>
@@ -57,7 +59,47 @@
 
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
+              <div class="row table-responsive">
+                  <div class="col table-responsive">
+                      <!-- Tabel -->
+                      <div class="card">
+  
+
+  <?= $this->session->flashdata('pesan'); ?>
+
+  <?= anchor('administrator/gizi/tambah_gizi', '<button class="btn btn-primary btn-sm mb-2"><i class="fas fa-plus fa-sm"></i> Tambah Gizi</button>') ?>
+
+  <table id="dataTable" class="table table-responsive table-bordered">
+    <tr>
+    <th>Id Gizi</th>
+    <th>Id Posyandu</th>
+      <th>Jenis</th>
+      <th>Tanggal</th>
+      <th>Keterangan</th>
+      <th>Gambar</th>
+      <th>Status</th>
+      <th colspan="2">AKSI</th>
+    </tr>
+
+
+    <?php
+    $no = 1;
+
+    foreach($gizi as $gizi): ?>
+    <tr>
+      
+      <td><?= $gizi->id_gizi; ?></td>
+      <td><?= $gizi->id_posyandu; ?></td>
+      <td><?= $gizi->jenis; ?></td>
+      <td><?= $gizi->tanggal; ?></td>
+      <td><?= $gizi->gambar; ?></td>
+      <td><?= $gizi->status; ?></td>
+      
+      <td width="20px"><?= anchor('administrato/gizi/update/'.$gizi->id_gizi, '<div class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></div>') ?></td>
+      <td width="20px"><?= anchor('administrato/gizi/hapus/'.$gizi->id_gizi, '<div onclick="return confirm(\'Yakin akan menghapus?\')" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></div>') ?></td>
+    </tr>
+    <?php endforeach; ?>
+  </table>
+
+  
+</div>

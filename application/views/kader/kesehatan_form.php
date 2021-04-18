@@ -14,23 +14,28 @@ function nilai() {
 }
 </script>
 
-<div class="container-fluid">
-    <div class="alert alert-success" role="alert">
-        <i class="fas fa-database"></i> Form Update Data Gizi
-</div>
+<div class="first-widget parallax" id="portfolio">
+		<div class="parallax-overlay">
+			<div class="container pageTitle">
+				<div class="row">
+					<div class="col-md-6 col-sm-6">
+						<h2 class="page-title">Posyandu Lansia</h2>
+					</div> <!-- /.col-md-6 -->
+					<div class="col-md-6 col-sm-6 text-right">
+						<span class="page-location">Kader/Data Kesehatan</span>
+					</div> <!-- /.col-md-6 -->
+				</div> <!-- /.row -->
+			</div> <!-- /.container -->
+		</div> <!-- /.parallax-overlay -->
+	</div> <!-- /.pageTitle -->
 
-  <form action="<?= base_url('nakes/data_kes_lansia/tambah_data_kes_lansia_aksi') ?>" method="post">
+  <form action="<?= base_url('kader/data_kes_lansia/tambah_data_kes_lansia_aksi') ?>" method="post">
     <div class="row">
       <div class="col-md-6">
       <div class="form-group">
           <label for="">Id Kesehatan</label>
           <input type="text" name="id_kesehatan" placeholder="Ketikkan Id Kesehatan" class="form-control">
           <?= form_error('id_kesehatan', '<div class="text-danger small">', '</div>'); ?>
-        </div>
-        <div class="form-group">
-          <label for="">Id Posyandu</label>
-          <input type="text" name="id_posyandu" placeholder="Ketikkan Id Posyandu" class="form-control">
-          <?= form_error('id_posyandu', '<div class="text-danger small">', '</div>'); ?>
         </div>
       <div class="form-group">
           <label for="">Id Lansia</label>
@@ -55,6 +60,7 @@ function nilai() {
         <div class="form-group">
           <label for="">IMT</label>
           <input readonly type="number" name="IMT" id="IMT" placeholder="Masukkan IMT" class="form-control">
+          
         </div>
         <div class="form-group">
           <label for="">Tensi Sistolik</label>
@@ -65,21 +71,6 @@ function nilai() {
           <label for="">Tensi Diastolik</label>
           <input type="tensi_diastolik" name="tensi_diastolik" placeholder="Masukkan tensi diastolik" class="form-control">
           <?= form_error('tensi_diastolik', '<div class="text-danger small">', '</div>'); ?>
-        </div>
-        <div class="form-group">
-          <label for="">Analisis IMT</label> <br>
-            <input type="radio" name="analisis_IMT" value="kurus"> Kurus <br>
-            <input type="radio" name="analisis_IMT" value="normal"> Normal<br>
-            <input type="radio" name="analisis_IMT" value="gemuk"> Gemuk<br>
-            <input type="radio" name="analisis_IMT" value="obesitas"> Obesitas<br>
-          <?= form_error('analisis_IMT', '<div class="text-danger small">', '</div>'); ?>
-        </div>
-        <div class="form-group">
-          <label for="">Analisis Tensi</label> <br>
-            <input type="radio" name="analisis_tensi" value="hipotensi"> Hipotensi <br>
-            <input type="radio" name="analisis_tensi" value="normal"> Normal<br>
-            <input type="radio" name="analisis_tensi" value="hipertensi"> Hipertensi<br>
-          <?= form_error('analisis_tensi', '<div class="text-danger small">', '</div>'); ?>
         </div>
         <button type="submit" class="btn btn-primary">Simpan</button>
       </div>
