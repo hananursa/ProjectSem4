@@ -183,7 +183,18 @@ class gizi extends CI_Controller
     );
     redirect('nakes/gizi');
   }
-  
+  public function grafik_IMT(){
+    $this->load->view('template/nakes/header');
+    $this->load->view('template/nakes/sidebar');
+    $this->load->view('nakes/grafik_IMT');
+    $this->load->view('template/nakes/footer');
+  }
+  public function grafik_tensi(){
+    $this->load->view('template/nakes/header');
+    $this->load->view('template/nakes/sidebar');
+    $this->load->view('nakes/grafik_tensi');
+    $this->load->view('template/nakes/footer');
+  }
   public function _rules(){
     $this->form_validation->set_rules('id_gizi', 'id_gizi', 'required', [
       'required' => 'id_gizi wajib diisi!'

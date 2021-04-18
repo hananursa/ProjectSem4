@@ -25,9 +25,15 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('nakes/grafik') ?>"> 
+        <a class="nav-link" href="<?= base_url('nakes/gizi/grafik_IMT') ?>"> 
         <i class="fas fa-chart-bar"></i>
-          <span>Grafik Kesehatan</span>
+          <span>Grafik IMT</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<?= base_url('nakes/gizi/grafik_tensi') ?>"> 
+        <i class="fas fa-chart-bar"></i>
+          <span>Grafik Tensi</span>
         </a>
       </li>
 

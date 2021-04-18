@@ -15,7 +15,7 @@
       <div class="content">
           <div class="container-fluid">
               <div class="alert alert-secondary" role="alert">
-                  <i class="nav-icon fas fa-chart-line"></i> Nakes &nbsp; &nbsp; > &nbsp; &nbsp; <i class="nav-icon fas fa-newspaper"></i> Grafik IMT 
+                  <i class="nav-icon fas fa-chart-line"></i> Nakes &nbsp; &nbsp; > &nbsp; &nbsp; <i class="nav-icon fas fa-newspaper"></i> Grafik Tensi 
               </div>
               <div class="row table-responsive">
                   <div class="col table-responsive">
@@ -23,16 +23,16 @@
                       <div class="card">
             <?php
 
-            $query = $this->db->query("SELECT COUNT(*) FROM data_kes_lansia WHERE analisis_IMT='kurus'");
+            $query = $this->db->query("SELECT COUNT(*) FROM data_kes_lansia WHERE analisis_tensi='hipotensi'");
 
-            $totalKurus= $query->result_array(); 
+            $totalHipotensi= $query->result_array(); 
 
            
             ?>
 
             <?php
 
-            $query = $this->db->query("SELECT COUNT(*) FROM data_kes_lansia WHERE analisis_IMT='normal' ");
+            $query = $this->db->query("SELECT COUNT(*) FROM data_kes_lansia WHERE analisis_tensi='normal' ");
 
             $totalNormal = $query->result_array();
             
@@ -40,27 +40,19 @@
 
             <?php
 
-            $query = $this->db->query("SELECT COUNT(*) FROM data_kes_lansia WHERE analisis_IMT='gemuk' ");
+            $query = $this->db->query("SELECT COUNT(*) FROM data_kes_lansia WHERE analisis_tensi='hipertensi' ");
 
-            $totalGemuk = $query->result_array();
+            $totalHipertensi = $query->result_array();
            
             ?>
 
-            <?php
-
-            $query = $this->db->query("SELECT COUNT(*) FROM data_kes_lansia WHERE analisis_IMT='obesitas' ");
-
-            $totalObesitas = $query->result_array();
-           
-            ?>
             <?php             
-            $totalData[0]['COUNT(*)'] = $totalGemuk[0]['COUNT(*)'] + $totalKurus[0]['COUNT(*)'] + $totalNormal[0]['COUNT(*)'] + $totalObesitas[0]['COUNT(*)'];
+            $totalData[0]['COUNT(*)'] = $totalHipotensi[0]['COUNT(*)'] + $totalNormal[0]['COUNT(*)'] + $totalHipertensi[0]['COUNT(*)'];
 
             $dataPoints = array( 
-                array("label"=>"kurus", "y"=>(($totalKurus[0]['COUNT(*)']/$totalData[0]['COUNT(*)'])*100)),
+                array("label"=>"hipotensi", "y"=>(($totalHipotensi[0]['COUNT(*)']/$totalData[0]['COUNT(*)'])*100)),
                 array("label"=>"normal", "y"=>(($totalNormal[0]['COUNT(*)']/$totalData[0]['COUNT(*)'])*100)),
-                array("label"=>"gemuk", "y"=>(($totalGemuk[0]['COUNT(*)']/$totalData[0]['COUNT(*)'])*100)),
-                array("label"=>"obesitas", "y"=>(($totalObesitas[0]['COUNT(*)']/$totalData[0]['COUNT(*)'])*100))
+                array("label"=>"hipertensi", "y"=>(($totalHipertensi[0]['COUNT(*)']/$totalData[0]['COUNT(*)'])*100))
                 )
             ?>
                         <!DOCTYPE HTML>
@@ -76,7 +68,7 @@
                                         text: "Posyandu Lansia"
                                     },
                                     subtitles: [{
-                                        text: "Data IMT Posyandu Lansia"
+                                        text: "Data Tensi Posyandu Lansia"
                                     }],
                                     data: [{
                                         type: "pie",
