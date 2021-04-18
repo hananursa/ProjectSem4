@@ -15,6 +15,7 @@ class data_kes_lansia extends CI_Controller
   {
     $data = array(
       'id_kesehatan' => set_value('id_kesehatan'),
+      'id_posyandu' => set_value('id_posyandu'),
       'id_lansia' => set_value('id_lansia'),
       'tanggal_cek'    => set_value('tanggal_cek'),
       'bb_lansia'    => set_value('bb_lansia'),
@@ -41,6 +42,7 @@ class data_kes_lansia extends CI_Controller
     } else {
       $data = array(
         'id_kesehatan'   => $this->input->post('id_kesehatan', TRUE),
+        'id_posyandu'   => $this->input->post('id_posyandu', TRUE),
         'id_lansia'   => $this->input->post('id_lansia', TRUE),
         'tanggal_cek'      => $this->input->post('tanggal_cek', TRUE),
         'bb_lansia'      => $this->input->post('bb_lansia', TRUE),
@@ -79,6 +81,7 @@ class data_kes_lansia extends CI_Controller
   public function update_aksi()
   {
     $id_kesehatan         = $this->input->post('id_kesehatan');
+    $id_posyandu         = $this->input->post('id_posyandu');
     $id_lansia   = $this->input->post('id_lansia');
     $tanggal_cek   = $this->input->post('tanggal_cek');
     $bb_lansia     = $this->input->post('bb_lansia');
@@ -92,6 +95,7 @@ class data_kes_lansia extends CI_Controller
 
     $data = array(
       'id_kesehatan' => $id_kesehatan,
+      'id_posyandu' => $id_posyandu,
       'id_lansia' => $id_lansia,
       'tanggal_cek'    => $tanggal_cek,
       'bb_lansia'    => $bb_lansia,
@@ -137,6 +141,9 @@ class data_kes_lansia extends CI_Controller
   public function _rules()
   {
     $this->form_validation->set_rules('id_kesehatan', 'id_kesehatan', 'required', [
+      'required' => 'id_kesehatan wajib diisi!'
+    ]);
+    $this->form_validation->set_rules('id_posyandu', 'id_posyandu', 'required', [
       'required' => 'id_kesehatan wajib diisi!'
     ]);
     $this->form_validation->set_rules('id_lansia', 'id_lansia', 'required', [

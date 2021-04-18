@@ -6,11 +6,7 @@
   <?php echo form_open_multipart('nakes/gizi/tambah_gizi_aksi') ?>
   <div class="row">
     <div class="col-md-6">
-      <div class="form-group">
-          <label for="">Id Gizi</label>
-          <input type="text" name="id_gizi" placeholder="Ketikkan Id Gizi" class="form-control">
-          <?= form_error('id_gizi', '<div class="text-danger small">', '</div>'); ?>
-        </div>
+      
         <div class="form-group">
           <label for="">Id Posyandu</label>
           <input type="text" name="id_posyandu" placeholder="Ketikkan Id Posyandu" class="form-control">

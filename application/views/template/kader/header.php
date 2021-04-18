@@ -2,9 +2,10 @@
 <html lang="en-US">
 
 <head>
+
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<title>Medigo Blue, free responsive template</title>
+	<title>Puskesmas Kelurahan Tembokrejo</title>
 	<meta name="keywords" content="">
 	<meta name="description" content="">
 	<meta name="author" content="templatemo">
@@ -34,7 +35,9 @@
 
 </head>
 
+
 <body>
+
 	<div class="responsive_menu">
 		<ul class="main_menu">
 			<li><a href="<?= base_url() . 'kader/Dashboard/index' ?>">Home</a></li>

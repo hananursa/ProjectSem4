@@ -25,17 +25,20 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('nakes/gizi/grafik_IMT') ?>"> 
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
         <i class="fas fa-chart-bar"></i>
-          <span>Grafik IMT</span>
+          <span>Grafik</span>
         </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Grafik:</h6>
+            <a class="collapse-item" href="<?= base_url('nakes/gizi/grafik_IMT') ?>">Grafik IMT</a>
+            <a class="collapse-item" href="<?= base_url('nakes/gizi/grafik_tensi') ?>">Grafik Tensi</a>
+          </div>
+        </div>
+         
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('nakes/gizi/grafik_tensi') ?>"> 
-        <i class="fas fa-chart-bar"></i>
-          <span>Grafik Tensi</span>
-        </a>
-      </li>
+    
 
       <li class="nav-item">
         <a class="nav-link" href="<?= base_url('nakes/data_kes_lansia') ?>"> 

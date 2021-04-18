@@ -8,11 +8,7 @@
         <form action="<?= base_url('administrator/data_puskesmas/update_aksi') ?>" method="post">
             <div class="row">
             <div class="col-md-6">
-                <div class="form-group">
-                    <label for="">ID Kader</label>
-                    <input type="text" name="id_kader" placeholder="Ketikkan ID Kader" class="form-control" value="<?= $data_kader->id_kader ?>">
-                    <?= form_error('id_kader', '<div class="text-danger small">', '</div>'); ?>
-                </div>
+               
                 <div class="form-group">
                     <label for="">Id Posyandu</label>
                     <input type="text" name="id_posyandu" placeholder="Ketikkan Id posyandu" class="form-control" value="<?= $data_kader->id_posyandu ?>">

@@ -5,15 +5,10 @@
 
     <?php foreach ($gizi as $gizi) : ?>
 
-        <form action="<?= base_url('nakes/gizi/update_aksi') ?>" method="post">
+        <form action="<?= base_url('kader/gizi/update_aksi') ?>" method="post">
             <div class="row">
                 <div class="col-md-6">
-                <div class="form-group">
-                        <label for="">Id Gizi</label>
-                        <input type="hidden" name="id_gizi" value="<?= $gizi->id_gizi ?>">
-                        <input type="text" name="id_gizi" placeholder="Ketikkan Id Gizi" class="form-control" value="<?= $gizi->id_gizi ?>">
-                        <?= form_error('id_gizi', '<div class="text-danger small">', '</div>'); ?>
-                    </div>
+               
                     <div class="form-group">
                         <label for="">Jenis</label>
                         <input readonly type="text" name="jenis" placeholder="Ketikkan Nama Admin" class="form-control" value="<?= $gizi->jenis ?>">

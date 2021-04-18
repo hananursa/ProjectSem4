@@ -30,12 +30,7 @@
                     <input type="keterangan" name="keterangan" placeholder="Keterangan" class="form-control" value="<?= $gizi->keterangan ?>">
                     <?= form_error('keterangan', '<div class="text-danger small">', '</div>'); ?>
                 </div>
-                <div class="form-group">
-                        <label for="">Id Gizi</label>
-                        <input type="hidden" name="id_gizi" value="<?= $gizi->id_gizi ?>">
-                        <input type="text" name="id_gizi" placeholder="Ketikkan Id Gizi" class="form-control" value="<?= $gizi->id_gizi ?>">
-                        <?= form_error('id_gizi', '<div class="text-danger small">', '</div>'); ?>
-                    </div>
+                
                     <div class="form-group">
                         <label for="">Id Posyandu</label>
                         <input type="hidden" name="id_posyandu" value="<?= $gizi->id_posyandu ?>">
@@ -78,8 +73,7 @@
                     <input type="radio" name="status" value="sudahdiberikan" <?php if ($gizi->status == 'sudahdiberikan') : ?>checked<?php endif; ?>> Sudah Diberikan <br>
                     <?= form_error('status', '<div class="text-danger small">', '</div>'); ?>
                 </div>
-                <button type="submit" class="btn btn-primary">Simpan</button>
-            </div>
+                      </div>
         </div>
         <?php echo form_close(); ?>
     <?php endforeach; ?>

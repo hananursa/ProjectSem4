@@ -16,11 +16,7 @@
   <form action="<?= base_url('kader/data_lansia/tambah_data_lansia_aksi') ?>" method="post">
     <div class="row">
       <div class="col-md-6">
-      <div class="form-group">
-          <label for="">Id Lansia</label>
-          <input type="text" name="id_lansia" placeholder="Ketikkan Id Lansia" class="form-control">
-          <?= form_error('id_lansia', '<div class="text-danger small">', '</div>'); ?>
-        </div>
+      
         <div class="form-group">
           <label for="">Id Posyandu</label>
           <input type="text" name="id_posyandu" placeholder="Ketikkan id posyandu" class="form-control">

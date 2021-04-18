@@ -6,11 +6,7 @@
   <form action="<?= base_url('administrator/data_posyandu/tambah_data_posyandu_aksi') ?>" method="post">
     <div class="row">
       <div class="col-md-6">
-      <div class="form-group">
-        <label for="">Id Posyandu</label>
-        <input type="text" name="id_posyandu" placeholder="Ketikkan id posyandu" class="form-control" >
-        <?= form_error('id_posyandu', '<div class="text-danger small">', '</div>'); ?>
-      </div>
+     
       <div class="form-group">
         <label for="">Nama Posyandu</label>
         <input type="text" name="nama_posyandu" placeholder="Ketikkan nama posyandu" class="form-control">

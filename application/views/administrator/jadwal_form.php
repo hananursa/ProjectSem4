@@ -6,11 +6,7 @@
   <?php echo form_open_multipart('administrator/jadwal_kegiatan/tambah_jadwal_kegiatan_aksi') ?>
   <div class="row">
     <div class="col-md-6">
-      <div class="form-group">
-        <label for="">Id Jadwal</label>
-        <input type="text" name="id_jadwal" placeholder="Ketikkan Id Jadwal" class="form-control">
-        <?= form_error('id_jadwal', '<div class="text-danger small">', '</div>'); ?>
-      </div>
+     
       <div class="form-group">
         <label for="">Kegiatan</label>
         <input type="text" name="kegiatan" placeholder="Masukkan kegiatan" class="form-control">

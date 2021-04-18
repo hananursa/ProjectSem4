@@ -18,11 +18,7 @@
     <form action="<?= base_url('kader/data_lansia/update_aksi') ?>" method="post">
     <div class="row">
       <div class="col-md-6">
-      <div class="form-group">
-          <label for="">Id Lansia</label>
-          <input type="text" name="id_lansia" value="<?= $data_lansia->id_lansia ?>" class="form-control">
-          <?= form_error('id_lansia', '<div class="text-danger small">', '</div>'); ?>
-        </div>
+     
         <div class="form-group">
           <label for="">Id Posyandu</label>
           <input type="text" name="id_posyandu" value="<?= $data_lansia->id_posyandu ?>" class="form-control">

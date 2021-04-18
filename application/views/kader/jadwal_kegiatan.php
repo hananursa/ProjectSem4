@@ -43,7 +43,7 @@
     </table>
   </div>
   <?= $this->session->flashdata('pesan'); ?>
-  <?= anchor('kader/jadwal_kegiatan/tambah_jadwal_kegiatan', '<button class="btn btn-primary btn-sm mb-2"><i class="fas fa-plus fa-sm"></i> Tambah Data Jadwal Kegiatan</button>') ?>
+
 </div>
 
 

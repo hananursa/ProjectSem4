@@ -19,6 +19,7 @@
       <thead>
         <tr>
           <th>Id Gizi</th>
+          <th>Id Posyandu</th>
           <th>Jenis</th>
           <th>Tanggal</th>
           <th>Keterangan</th>
@@ -33,19 +34,20 @@
         foreach ($gizi as $gizi) : ?>
           <tr>
             <td><?= $gizi->id_gizi; ?></td>
+            <td><?= $gizi->id_posyandu; ?></td>
             <td><?= $gizi->jenis; ?></td>
             <td><?= $gizi->tanggal; ?></td>
             <td><?= $gizi->keterangan; ?></td>
             <td><img class="img-thumbnail" src="<?= base_url('assets/gizi/') ?><?= $gizi->gambar ?>" width="100px" height="100px"></td>
             <td><?= $gizi->status; ?></td>
-            <td width="20px"><?= anchor('nakes/gizi/update/' . $gizi->id_gizi, '<div class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></div>') ?></td>
-            <td width="20px"><?= anchor('nakes/gizi/hapus/' . $gizi->id_gizi, '<div onclick="return confirm(\'Yakin akan menghapus?\')" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></div>') ?></td>
+            <td width="20px"><?= anchor('kader/gizi/update/' . $gizi->id_gizi, '<div class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></div>') ?></td>
+            <td width="20px"><?= anchor('kader/gizi/hapus/' . $gizi->id_gizi, '<div onclick="return confirm(\'Yakin akan menghapus?\')" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></div>') ?></td>
           </tr>
         <?php endforeach; ?>
       </tbody>
     </table>
   </div>
   <?= $this->session->flashdata('pesan'); ?>
-  <?= anchor('nakes/gizi/tambah_gizi', '<button class="btn btn-primary btn-sm mb-2"><i class="fas fa-plus fa-sm"></i> Tambah Data Puskesmas</button>') ?>
+ 
 </div>
 </div>
