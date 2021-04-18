@@ -35,7 +35,6 @@
       <th>Username</th>
       <th>Pass Kader</th>
       <th>No HP</th>
-      <th>Level</th>
       <th colspan="2">AKSI</th>
     </tr>
 
@@ -50,7 +49,6 @@
       <td><?= $data_kader->username_kader; ?></td>
       <td><?= $data_kader->pass_kader; ?></td>
       <td><?= $data_kader->no_hp; ?></td>
-      <td><?= $data_kader->level; ?></td>
       <td width="20px"><?= anchor('administrator/data_kader/update/'.$data_kader->id_kader, '<div class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></div>') ?></td>
       <td width="20px"><?= anchor('administrator/data_kader/hapus/'.$data_kader->id_kader, '<div onclick="return confirm(\'Yakin akan menghapus?\')" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></div>') ?></td>
     </tr>

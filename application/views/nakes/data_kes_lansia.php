@@ -1,6 +1,5 @@
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
-<<<<<<< HEAD
       <!-- Content Header (Page header) -->
       <div class="content-header">
           <div class="container-fluid">
@@ -26,20 +25,8 @@
   
 
   <?= $this->session->flashdata('pesan'); ?>
-=======
-  <!-- Content Header (Page header) -->
-  <div class="content-header">
-    <div class="container-fluid">
-      <div class="row mb-2">
-        <div class="col-sm-6">
-          <h3 class="m-0 text-primary"> <i class="nav-icon fas fa-user-alt"></i> Data Kesehatan Lansia </h3>
-        </div><!-- /.col -->
-      </div><!-- /.row -->
-    </div><!-- /.container-fluid -->
-  </div>
->>>>>>> 10efbfcd641384a00158a0075f9e9ea3eed251e8
 
-  <?= anchor('nakes/data_kes_lansia/tambah_data_kes_lansia', '<button class="btn btn-primary btn-sm mb-2"><i class="fas fa-plus fa-sm"></i> Tambah Data Keseatan Lansia</button>') ?>
+  <?= anchor('nakes/data_kes_lansia/tambah_data_kes_lansia', '<button class="btn btn-primary btn-sm mb-2"><i class="fas fa-plus fa-sm"></i> Tambah Data Kesehatan Lansia</button>') ?>
 
   <table id="dataTable" class="table table-responsive table-bordered">
     <tr>
@@ -56,8 +43,6 @@
       <th>Analisis Tensi</th>
       <th colspan="2">AKSI</th>
     </tr>
-
-              <?= anchor('nakes/data_kes_lansia/tambah_data_kes_lansia', '<button class="btn btn-primary btn-sm mb-2"><i class="fas fa-plus fa-sm"></i> Tambah Data Keseatan Lansia</button>') ?>
 
     <?php foreach($data_kes_lansia as $data_kes_lansia): ?>
     <tr>

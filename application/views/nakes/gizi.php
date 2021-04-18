@@ -22,21 +22,7 @@
                       <div class="card">
   
 
-  <?= $this->session->flashdata('pesan'); ?>
-
-  <?= anchor('nakes/gizi/tambah_gizi', '<button class="btn btn-primary btn-sm mb-2"><i class="fas fa-plus fa-sm"></i> Tambah Gizi</button>') ?>
-
-  <table id="dataTable" class="table table-responsive table-bordered">
-    <tr>
-    <th>Id Gizi</th>
-    <th>Id Posyandu</th>
-    <th>Jenis</th>
-      <th>Tanggal</th>
-      <th>Keterangan</th>
-      <th>Gambar</th>
-      <th>Status</th>
-      <th colspan="2">AKSI</th>
-    </tr>
+                 <?= $this->session->flashdata('pesan'); ?>
 
                   <?= anchor('nakes/gizi/tambah_gizi', '<button class="btn btn-primary btn-sm mb-2"><i class="fas fa-plus fa-sm"></i> Tambah Gizi</button>') ?>
                   <div class="table-responsive">

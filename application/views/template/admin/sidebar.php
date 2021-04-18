@@ -51,14 +51,6 @@
           <span>Jadwal Kegiatan</span>
         </a>
       </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('administrator/users') ?>"> 
-          <i class="fas fa-fw fa-wrench"></i>
-          <span>Users</span>
-        </a> 
-      </li>
-
       
       <!-- Nav Item - Charts -->
       <li class="nav-item">
