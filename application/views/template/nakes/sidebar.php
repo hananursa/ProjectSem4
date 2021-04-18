@@ -25,7 +25,7 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('nakes/gizi/grafik_IMT') ?>"> 
+        <a class="nav-link" href="<?= base_url('nakes/grafik') ?>"> 
         <i class="fas fa-chart-bar"></i>
           <span>Grafik Kesehatan</span>
         </a>

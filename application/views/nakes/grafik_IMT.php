@@ -4,7 +4,7 @@
           <div class="container-fluid">
               <div class="row mb-2">
                   <div class="col-sm-6">
-                      <h3 class="m-0 text-primary"> <i class="nav-icon fas fa-user-alt"></i> Data Kesehatan Lansia </h3>
+                      <h3 class="m-0 text-primary"> <i class="nav-icon fas fa-user-alt"></i> Grafik </h3>
                   </div><!-- /.col -->
               </div><!-- /.row -->
           </div><!-- /.container-fluid -->
@@ -15,7 +15,7 @@
       <div class="content">
           <div class="container-fluid">
               <div class="alert alert-secondary" role="alert">
-                  <i class="nav-icon fas fa-chart-line"></i> Nakes &nbsp; &nbsp; > &nbsp; &nbsp; <i class="nav-icon fas fa-newspaper"></i> Data Kesehatan Lansia
+                  <i class="nav-icon fas fa-chart-line"></i> Nakes &nbsp; &nbsp; > &nbsp; &nbsp; <i class="nav-icon fas fa-newspaper"></i> Grafik IMT 
               </div>
               <div class="row table-responsive">
                   <div class="col table-responsive">
@@ -23,113 +23,70 @@
                       <div class="card">
             <?php
 
-            $query = $this->db->query("SELECT COUNT(*) FROM data_kes_lansia WHERE analisis_IMT='kurus' ");
+            $query = $this->db->query("SELECT COUNT(*) FROM data_kes_lansia WHERE analisis_IMT='kurus'");
 
-            $dataIMTkurusChart = $query->result(); 
-            foreach ($dataIMTkurusChart as $k => $v) {
-              $arrIMTkurus[] = ['y' => $v->total_bayar];
-            }
+            $totalKurus= $query->result_array(); 
+
+           
             ?>
 
             <?php
 
             $query = $this->db->query("SELECT COUNT(*) FROM data_kes_lansia WHERE analisis_IMT='normal' ");
 
-            $dataIMTnormalChart = $query->result();
-            foreach ($dataIMTnormalChart as $k => $v) {
-              $arrIMTnormal[] = ['y' => $v->total_bayar];
-            }
+            $totalNormal = $query->result_array();
+            
             ?>
 
             <?php
 
             $query = $this->db->query("SELECT COUNT(*) FROM data_kes_lansia WHERE analisis_IMT='gemuk' ");
 
-            $dataIMTgemukChart = $query->result();
-            foreach ($dataIMTgemukChart as $k => $v) {
-            $arrIMTgemuk[] = ['y' => $v->total_bayar];
-            }
+            $totalGemuk = $query->result_array();
+           
             ?>
 
             <?php
 
             $query = $this->db->query("SELECT COUNT(*) FROM data_kes_lansia WHERE analisis_IMT='obesitas' ");
 
-            $dataIMTobesitasChart = $query->result();
-            foreach ($dataIMTobesitasChart as $k => $v) {
-            $arrIMTobesitas[] = ['y' => $v->total_bayar];
-            }
+            $totalObesitas = $query->result_array();
+           
             ?>
-<br>
+            <?php             
+            $totalData[0]['COUNT(*)'] = $totalGemuk[0]['COUNT(*)'] + $totalKurus[0]['COUNT(*)'] + $totalNormal[0]['COUNT(*)'] + $totalObesitas[0]['COUNT(*)'];
+
+            $dataPoints = array( 
+                array("label"=>"kurus", "y"=>(($totalKurus[0]['COUNT(*)']/$totalData[0]['COUNT(*)'])*100)),
+                array("label"=>"normal", "y"=>(($totalNormal[0]['COUNT(*)']/$totalData[0]['COUNT(*)'])*100)),
+                array("label"=>"gemuk", "y"=>(($totalGemuk[0]['COUNT(*)']/$totalData[0]['COUNT(*)'])*100)),
+                array("label"=>"obesitas", "y"=>(($totalObesitas[0]['COUNT(*)']/$totalData[0]['COUNT(*)'])*100))
+                )
+            ?>
                         <!DOCTYPE HTML>
                         <html>
                         <head>
                             <script>
                             window.onload = function() {
-
+ 
+ 
                                 var chart = new CanvasJS.Chart("chartContainer", {
                                     animationEnabled: true,
-                                    theme: "light2",
                                     title: {
-                                        text: "Transaksi Beras"
+                                        text: "Posyandu Lansia"
                                     },
-                                    axisX: {
-                                        //valueFormatString: "DD MMM",
-                                        crosshair: {
-                                            enabled: true,
-                                            snapToDataPoint: true
-                                        }
-                                    },
-                                    axisY: {
-                                        title: "Total Pembayaran",
-                                        includeZero: true,
-                                        crosshair: {
-                                            enabled: true
-                                        }
-                                    },
-                                    toolTip: {
-                                        shared: true
-                                    },
-                                    legend: {
-                                        cursor: "pointer",
-                                        verticalAlign: "top",
-                                        horizontalAlign: "left",
-                                        dockInsidePlotArea: false,
-                                        itemclick: toogleDataSeries
-                                    },
+                                    subtitles: [{
+                                        text: "Data IMT Posyandu Lansia"
+                                    }],
                                     data: [{
-                                            type: "line",
-                                            showInLegend: true,
-                                            name: "Penggilingan Padi",
-                                            markerType: "square",
-                                            color: "#F08080",
-                                            dataPoints:
-
-                                                <?= json_encode($arrPenggilingan, JSON_NUMERIC_CHECK); ?>
-
-                                        },
-                                        {
-                                            type: "line",
-                                            showInLegend: true,
-                                            name: "Penjualan Dedak",
-                                            lineDashType: "dash",
-                                            dataPoints:
-                                                <?= json_encode($arrDedak, JSON_NUMERIC_CHECK); ?>
-
-                                        }
-                                    ]
+                                        type: "pie",
+                                        yValueFormatString: "#,##0.00\"%\"",
+                                        indexLabel: "{label} ({y})",
+                                        dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+                                    }]
                                 });
                                 chart.render();
-
-                                function toogleDataSeries(e) {
-                                    if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
-                                        e.dataSeries.visible = false;
-                                    } else {
-                                        e.dataSeries.visible = true;
-                                    }
-                                    chart.render();
-                                }
-
+                                
                             }
                             </script>
                         </head>
