@@ -42,7 +42,7 @@
 
     foreach($data_posyandu as $data_posyandu): ?>
     <tr>
-      <td><?= $data_posyandu->id_posyandu; ?></td>
+      <td><?= $no++ ?></td>
       <td><?= $data_posyandu->nama_posyandu; ?></td>
       <td><?= $data_posyandu->nama_ketua; ?></td>
       <td><?= $data_posyandu->jumlah_kader; ?></td>

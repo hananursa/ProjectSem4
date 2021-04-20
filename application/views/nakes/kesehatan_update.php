@@ -24,11 +24,6 @@ function nilai() {
         <form action="<?= base_url('nakes/data_kes_lansia/update_aksi') ?>" method="post">
             <div class="row">
                 <div class="col-md-6">
-                <div class="form-group">
-                        <label for="">Id Kesehatan</label>   <br>                     
-                        <input type="text" name="id_kesehatan" placeholder="Ketikkan Id Admin" class="form-control" value="<?= $data_kes_lansia->id_kesehatan ?>">
-                        <?= form_error('id_kesehatan', '<div class="text-danger small">', '</div>'); ?>
-                    </div>
                     <div class="form-group">
                         <label for="">Id Posyandu</label>   <br>                     
                         <input type="text" name="id_posyandu" placeholder="Ketikkan Id Posyandu" class="form-control" value="<?= $data_kes_lansia->id_kesehatan ?>">

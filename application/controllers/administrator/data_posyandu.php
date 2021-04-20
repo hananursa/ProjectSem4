@@ -12,7 +12,7 @@ class data_posyandu extends CI_Controller{
 
   public function tambah_data_posyandu(){
     $data = array(
-      'id_posyandu' => set_value('id_posyandu'),
+      // 'id_posyandu' => set_value('id_posyandu'),
       'nama_posyandu' => set_value('nama_posyandu'),
       'nama_ketua' => set_value('nama_ketua'),
       'jumlah_kader' => set_value('jumlah_kader'),
@@ -32,7 +32,7 @@ class data_posyandu extends CI_Controller{
     }
     else{
       $data = array(
-      'id_posyandu'   => $this->input->post('id_posyandu', TRUE),
+      // 'id_posyandu'   => $this->input->post('id_posyandu', TRUE),
       'nama_posyandu'   => $this->input->post('nama_posyandu', TRUE),
       'nama_ketua'   => $this->input->post('nama_ketua', TRUE),
       'jumlah_kader'   => $this->input->post('jumlah_kader', TRUE)
@@ -68,7 +68,7 @@ class data_posyandu extends CI_Controller{
     $jumlah_kader = $this->input->post('jumlah_kader');
 
     $data = array(
-      'id_posyandu' => $id_posyandu,
+      // 'id_posyandu' => $id_posyandu,
       'nama_posyandu' => $nama_posyandu,
       'nama_ketua' => $nama_ketua,
       'jumlah_kader' => $jumlah_kader,
@@ -106,9 +106,9 @@ class data_posyandu extends CI_Controller{
   }
 
   public function _rules(){
-    $this->form_validation->set_rules('id_posyandu', 'id_posyandu', 'required', [
-      'required' => 'id_posyandu wajib diisi!'
-    ]);
+    // $this->form_validation->set_rules('id_posyandu', 'id_posyandu', 'required', [
+    //   'required' => 'id_posyandu wajib diisi!'
+    // ]);
     $this->form_validation->set_rules('nama_posyandu', 'nama_posyandu', 'required', [
       'required' => 'nama_posyandu wajib diisi!'
     ]);

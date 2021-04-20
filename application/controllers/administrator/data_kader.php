@@ -13,7 +13,6 @@ class data_kader extends CI_Controller{
 
   public function tambah_data_kader(){
     $data = array(
-      'id_kader' => set_value('id_kader'),
       'id_posyandu' => set_value('id_posyandu'),
       'nama_kader' => set_value('nama_kader'),
       'username_kader' => set_value('username_kader'),
@@ -44,7 +43,6 @@ class data_kader extends CI_Controller{
       'username_kader'   => $this->input->post('username_kader', TRUE),
       'pass_kader'   => $this->input->post('pass_kader', TRUE),
       'no_hp'   => $this->input->post('no_hp', TRUE),
-      'level'   => $this->input->post('level', TRUE),
         
       );
 
@@ -78,7 +76,6 @@ class data_kader extends CI_Controller{
     $username_kader = $this->input->post('username_kader');
     $pass_kader = $this->input->post('pass_kader');
     $no_hp = $this->input->post('no_hp');
-    $level = $this->input->post('level');
 
     
     $data = array(
@@ -88,7 +85,6 @@ class data_kader extends CI_Controller{
       'username_kader' => $username_kader,
       'pass_kader' => $pass_kader,
       'no_hp' => $no_hp,
-      'level' => $level,
     );
 
     $where = array('id_kader'=>$id_kader);
@@ -122,9 +118,6 @@ class data_kader extends CI_Controller{
   }
 
   public function _rules(){
-    $this->form_validation->set_rules('id_kader', 'id_kader', 'required', [
-      'required' => 'id_kader wajib diisi!'
-    ]);
     $this->form_validation->set_rules('id_posyandu', 'id_posyandu', 'required', [
       'required' => 'id_posyandu wajib diisi!'
     ]);
@@ -138,9 +131,6 @@ class data_kader extends CI_Controller{
       'required' => 'pass_kader wajib diisi!'
     ]);
     $this->form_validation->set_rules('no_hp', 'no_hp', 'required', [
-      'required' => ' wajib diisi!'
-    ]);
-    $this->form_validation->set_rules('level', 'level', 'required', [
       'required' => ' wajib diisi!'
     ]);
   }

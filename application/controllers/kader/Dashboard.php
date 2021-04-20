@@ -61,6 +61,13 @@ class Dashboard extends CI_Controller
 		$this->load->view('Kader/keterangan_kegiatan', $data);
 		$this->load->view('Template/Kader/footer', $data);
 	}
+	public function keterangan_gizi()
+	{
+		$data['title'] = 'Data Lansia';
+		$this->load->view('Template/Kader/header', $data);
+		$this->load->view('Kader/keterangan_gizii', $data);
+		$this->load->view('Template/Kader/footer', $data);
+	}
 }
 
 /* End of file Controllername.php */

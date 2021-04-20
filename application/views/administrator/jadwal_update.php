@@ -29,7 +29,7 @@
                 </div>
                 <div class="form-group">
                     <label for="">Gambar</label>
-                    <input type="file" name="gambar" placeholder="gambar" class="form-control" required>
+                    <input type="file" name="gambar" placeholder="gambar" class="form-control" value="<?= $jadwal_kegiatan->keterangan ?>" required>
                     <?= form_error('gambar', '<div class="text-danger small">', '</div>'); ?>
                 </div>
                 <button type="submit" class="btn btn-primary">Simpan</button>

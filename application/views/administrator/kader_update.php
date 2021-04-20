@@ -34,11 +34,6 @@
                     <input type="password" name="pass_kader" placeholder="Masukkan password" class="form-control" value="<?= $data_kader->pass_kader ?>">
                     <?= form_error('pass_kader', '<div class="text-danger small">', '</div>'); ?>
                 </div>
-                <div class="form-group">
-                    <label for="">Id role</label>
-                    <input type="text" name="level" placeholder="Masukkan level" class="form-control" value="<?= $data_kader->level ?>">
-                    <?= form_error('level', '<div class="text-danger small">', '</div>'); ?>
-                </div>
                 <button type="submit" class="btn btn-primary">Simpan</button>
             </div>
             </div>

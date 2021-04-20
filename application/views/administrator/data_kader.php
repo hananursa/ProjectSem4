@@ -37,13 +37,11 @@
       <th>No HP</th>
       <th colspan="2">AKSI</th>
     </tr>
-
-    <?php
     
-
+    <?php $no = 1;
     foreach($data_kader as $data_kader): ?>
     <tr>
-      <td><?= $data_kader->id_kader; ?></td>
+      <td><?= $no++ ?></td>
       <td><?= $data_kader->id_posyandu; ?></td>
       <td><?= $data_kader->nama_kader; ?></td>
       <td><?= $data_kader->username_kader; ?></td>

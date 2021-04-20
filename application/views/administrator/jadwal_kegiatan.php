@@ -40,9 +40,11 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <?php foreach ($jadwal_kegiatan as $jadwal_kegiatan) : ?>
+
+                    <?php $no = 1;
+                    foreach ($jadwal_kegiatan as $jadwal_kegiatan) : ?>
                       <tr>
-                        <td><?= $jadwal_kegiatan->id_jadwal; ?></td>
+                        <<td><?= $no++ ?></td>
                         <td><?= $jadwal_kegiatan->kegiatan ?></td>
                         <td><?= $jadwal_kegiatan->waktu ?></td>
                         <td><?= $jadwal_kegiatan->keterangan ?></td>

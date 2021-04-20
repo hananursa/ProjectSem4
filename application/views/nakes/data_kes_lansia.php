@@ -44,9 +44,10 @@
       <th colspan="2">AKSI</th>
     </tr>
 
-    <?php foreach($data_kes_lansia as $data_kes_lansia): ?>
+    <?php $no = 1;
+    foreach($data_kes_lansia as $data_kes_lansia): ?>
     <tr>
-      <td><?= $data_kes_lansia->id_kesehatan; ?></td>
+      <td><?= $no++ ?></td>
       <td><?= $data_kes_lansia->id_posyandu; ?></td>
       <td><?= $data_kes_lansia->id_lansia; ?></td>
       <td><?= $data_kes_lansia->tanggal_cek; ?></td>

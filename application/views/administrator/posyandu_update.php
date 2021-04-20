@@ -9,11 +9,6 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="">No</label>
-                        <input type="text" name="id_posyandu" placeholder="Ketikkan id posyandu" class="form-control" value="<?= $data_posyandu->id_posyandu ?>">
-                        <?= form_error('id_posyandu', '<div class="text-danger small">', '</div>'); ?>
-                    </div>
-                    <div class="form-group">
                         <label for="">Nama Posyandu</label>
                         <input type="text" name="nama_posyandu" placeholder="Ketikkan nama_posyandu" class="form-control"value="<?= $data_posyandu->nama_posyandu ?>">
                         <?= form_error('nama_posyandu', '<div class="text-danger small">', '</div>'); ?>

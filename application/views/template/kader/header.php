@@ -57,7 +57,7 @@
 			<li><a href="#">Gizi</a>
 				<ul>
 					<li><a href="<?= base_url() . 'Kader/gizi/index'; ?>">Data Gizi</a></li>
-					<li><a href="<?= base_url() . 'Kader/Dashboard/keterangan_kegiatan'; ?>">Rincian Gizi</a></li>
+					<li><a href="<?= base_url() . 'Kader/Dashboard/keterangan_gizi'; ?>">Rincian Gizi</a></li>
 				</ul>
 			</li>
 			<li><a href="<?= base_url('auth/logout'); ?>" onclick="return confirm('Yakin akan logout?')">Logout</a>

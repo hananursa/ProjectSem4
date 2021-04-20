@@ -146,9 +146,6 @@ class jadwal_kegiatan extends CI_Controller
 
   public function _rules()
   {
-    $this->form_validation->set_rules('id_jadwal', 'id_jadwal', 'required', [
-      'required' => 'id_jadwal wajib diisi!'
-    ]);
     $this->form_validation->set_rules('kegiatan', 'kegiatan', 'required', [
       'required' => 'kegiatan wajib diisi!'
     ]);

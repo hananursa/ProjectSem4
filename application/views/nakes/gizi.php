@@ -43,7 +43,7 @@
                         $no = 1;
                         foreach ($gizi as $gizi) : ?>
                           <tr>
-                            <td><?= $gizi->id_gizi; ?></td>
+                            <td><?= $no++ ?></td>
                             <td><?= $gizi->jenis; ?></td>
                             <td><?= $gizi->tanggal; ?></td>
                             <td><?= $gizi->keterangan; ?></td>

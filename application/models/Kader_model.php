@@ -4,7 +4,7 @@ class Kader_model extends CI_Model
 {
 
   public $table = 'data_kader';
-  public $id_admin = 'id_kader';
+  public $id_kader = 'id_kader';
 
   public function ambil_data($id_kader)
   {
