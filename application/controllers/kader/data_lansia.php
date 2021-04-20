@@ -121,10 +121,6 @@ class data_lansia extends CI_Controller{
   }
   
   public function _rules(){
-<<<<<<< HEAD
-=======
-   
->>>>>>> aa4b29005fc0a70e9d8c020f54c1523bc4b76e59
     $this->form_validation->set_rules('id_posyandu', 'id_posyandu', 'required', [
       'required' => ' id_posyandu wajib diisi!'
     ]);

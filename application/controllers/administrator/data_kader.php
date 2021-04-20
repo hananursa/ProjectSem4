@@ -59,8 +59,8 @@ class data_kader extends CI_Controller{
       redirect('administrator/data_kader');
     }
   }
-  public function update($id_admin){
-    $where = array('id_admin'=>$id_admin);
+  public function update($id_kader){
+    $where = array('id_kader'=>$id_kader);
 
     $data['data_kader'] = $this->user_model->edit_data($where, 'data_kader')->result();
     $this->load->view('template/admin/header');

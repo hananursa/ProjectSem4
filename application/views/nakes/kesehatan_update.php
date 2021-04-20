@@ -73,9 +73,9 @@ function nilai() {
                     </div>
                     <div class="form-group">
                     <label for="">Analisis Tensi</label> <br>
-                        <input type="radio" name="analisis_tensi" value="hipotensi"> Hipotensi <br>
-                        <input type="radio" name="analisis_tensi" value="normal"> Normal<br>
-                        <input type="radio" name="analisis_tensi" value="hipertensi"> Hipertensi<br>
+                        <input type="radio" name="analisis_tensi" value="hipotensi" <?php if ($data_kes_lansia->analisis_tensi == 'hipotensi') : ?>checked<?php endif; ?>> Hipotensi <br>
+                        <input type="radio" name="analisis_tensi" value="normal" <?php if ($data_kes_lansia->analisis_tensi == 'normal') : ?>checked<?php endif; ?>> Normal<br>
+                        <input type="radio" name="analisis_tensi" value="hipertensi" <?php if ($data_kes_lansia->analisis_tensi == 'hipertensi') : ?>checked<?php endif; ?>> Hipertensi<br>
                     <?= form_error('analisis_tensi', '<div class="text-danger small">', '</div>'); ?>
                     </div>        
                     <button type="submit" class="btn btn-primary">Simpan</button>

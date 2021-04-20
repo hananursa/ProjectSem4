@@ -3,9 +3,8 @@
         <i class="fas fa-database"></i> Form Update Data Puskesmas
     </div>
 
-    <?php foreach ($data_puskesmas as $data_puskesmas) : ?>
-
-        <form action="<?= base_url('administrator/data_puskesmas/update_aksi') ?>" method="post">
+    <?php foreach ($data_kader as $data_kader) : ?>
+        <?php echo form_open_multipart('administrator/data_kader/update_aksi/'.$data_kader->id_kader) ?>
             <div class="row">
             <div class="col-md-6">
                
@@ -21,7 +20,7 @@
                 </div>
                 <div class="form-group">
                     <label for="">Username</label>
-                    <input type="text" name="username_kader" placeholder="Masukkan username" class="form-control" value="<?= $data_kader->username ?>">
+                    <input type="text" name="username_kader" placeholder="Masukkan username" class="form-control" value="<?= $data_kader->username_kader ?>">
                     <?= form_error('username_kader', '<div class="text-danger small">', '</div>'); ?>
                 </div>
                 <div class="form-group">
@@ -38,6 +37,6 @@
             </div>
             </div>
         </form>
-
+        <?php echo form_close(); ?>
     <?php endforeach; ?>
 </div>
