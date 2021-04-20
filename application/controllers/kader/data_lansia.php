@@ -20,7 +20,6 @@ class data_lansia extends CI_Controller{
   public function tambah_data_lansia(){
     $data['jenis_kelamin']=['laki','perempuan'];
     $data = array(
-      'id_lansia' => set_value('id_lansia'),
       'id_posyandu' => set_value('id_posyandu'),
       'nama_lansia'    => set_value('nama_lansia'),
       'tanggal_lahir'   => set_value('tanggal_lahir'),
@@ -122,6 +121,10 @@ class data_lansia extends CI_Controller{
   }
   
   public function _rules(){
+<<<<<<< HEAD
+=======
+   
+>>>>>>> aa4b29005fc0a70e9d8c020f54c1523bc4b76e59
     $this->form_validation->set_rules('id_posyandu', 'id_posyandu', 'required', [
       'required' => ' id_posyandu wajib diisi!'
     ]);

@@ -18,7 +18,7 @@
     <table class="table table-bordered table-hover table-striped">
       <thead>
         <tr>
-          <th>NO</th>
+          <th>ID Lansia</th>
           <th>ID POSYANDU</th>
           <th>NAMA</th>
           <th>TANGGAL LAHIR</th>
@@ -33,7 +33,7 @@
         $no = 1;
         foreach ($data_lansia as $data_lansia) : ?>
           <tr>
-            <td><?= $data_lansia->id_lansia; ?></td>
+            <td><?= $no++; ?></td>
             <td><?= $data_lansia->id_posyandu; ?></td>
             <td><?= $data_lansia->nama_lansia; ?></td>
             <td><?= $data_lansia->tanggal_lahir; ?></td>

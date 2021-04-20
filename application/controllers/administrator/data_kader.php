@@ -99,7 +99,7 @@ class data_kader extends CI_Controller{
         </button>
       </div>'
     );
-    redirect('administratir/data_kader');
+    redirect('administrator/data_kader');
   }
 
   public function hapus($id_admin){
