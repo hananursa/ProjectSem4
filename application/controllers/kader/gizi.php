@@ -70,9 +70,7 @@ class gizi extends CI_Controller{
   }
   
   public function _rules(){
-    $this->form_validation->set_rules('id_gizi', 'id_gizi', 'required', [
-      'required' => 'id_gizi wajib diisi!'
-    ]);
+ 
     $this->form_validation->set_rules('id_posyandu', 'id_posyandu', 'required', [
       'required' => 'id_posyandu wajib diisi!'
     ]);

@@ -18,10 +18,10 @@
     <table class="table table-bordered table-hover table-striped">
       <thead>
         <tr>
-          <th>#</th>
-          <th>No Kesehatan</th>
+         
+          <th>No</th>
           <th>Id posyandu</th>
-          <th>No Lansia</th>
+          <th>Id Lansia</th>
           <th>Tanggal Cek</th>
           <th>BB Lansia</th>
           <th>Tinggi Lansia</th>
@@ -39,7 +39,6 @@
         foreach ($data_kes_lansia as $data_kes_lansia) : ?>
           <tr>
             <td><?= $no++; ?></td>
-            <td><?= $data_kes_lansia->id_kesehatan; ?></td>
             <td><?= $data_kes_lansia->id_posyandu; ?></td>
             <td><?= $data_kes_lansia->id_lansia; ?></td>
             <td><?= $data_kes_lansia->tanggal_cek; ?></td>

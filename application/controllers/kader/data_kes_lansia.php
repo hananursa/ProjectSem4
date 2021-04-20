@@ -140,11 +140,9 @@ class data_kes_lansia extends CI_Controller
 
   public function _rules()
   {
-    $this->form_validation->set_rules('id_kesehatan', 'id_kesehatan', 'required', [
-      'required' => 'id_kesehatan wajib diisi!'
-    ]);
+ 
     $this->form_validation->set_rules('id_posyandu', 'id_posyandu', 'required', [
-      'required' => 'id_kesehatan wajib diisi!'
+      'required' => 'id_posyandu wajib diisi!'
     ]);
     $this->form_validation->set_rules('id_lansia', 'id_lansia', 'required', [
       'required' => 'id_lansia wajib diisi!'
