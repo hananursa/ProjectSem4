@@ -14,7 +14,11 @@
   <!-- /.content-header -->
   <!-- Main content -->
   <div class="content">
-    <div class="container-fluid">
+    <!-- <div class="container-fluid">
+        <?php echo form_open('administrator/jadwal_kegiatan/search') ?>
+          <input type="text" name="keyword" placeholder="search">
+          <input type="submit" name="search_submit" value="Cari">
+        <?php echo form_close() ?> -->
       <div class="alert alert-secondary" role="alert">
         <i class="nav-icon fas fa-chart-line"></i> Admin &nbsp; &nbsp; > &nbsp; &nbsp; <i class="nav-icon fas fa-newspaper"></i> Jadwal Kegiatan
       </div>

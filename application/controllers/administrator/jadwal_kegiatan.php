@@ -143,7 +143,11 @@ class jadwal_kegiatan extends CI_Controller
     );
     redirect('administrator/jadwal_kegiatan');
   }
-
+  public function search(){
+    $keyword = $this->input->post('keyword');
+    $data['jadwal_kegiatan']=$this->jadwal_model->get_product_keyword($keyword);
+    $this->load->view('search',$data);
+  }
   public function _rules()
   {
     $this->form_validation->set_rules('kegiatan', 'kegiatan', 'required', [

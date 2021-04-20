@@ -31,5 +31,12 @@ class Jadwal_model extends CI_Model{
     $this->db->where($where);
     $this->db->delete($table);
   }
+  public function get_product_keyword($keyword){
+    $this->db->select('*');
+    $this->db->from('jadwal_kegiatan');
+    $this->db->like('id_jadwal',$keyword);
+    $this->db->or_like('kegiatan',$keyword);
+    return $this->db->get()->result();
+  }
 
 }
